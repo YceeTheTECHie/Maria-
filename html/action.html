@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8"/>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="../css/action.css" type="text/css">
+  <link rel="stylesheet" href="../css/index.css" type="text/css">
+  <title>Maria</title>
+  </head>
+<body>
+	<div class="page-wrapper">
+		<div class="nav-wrapper">
+		<div class="grad-bar"></div>
+		<nav class="navbar">
+		<img  class ="logo-icon" src="../images/logo_file.png" width="auto"/>
+		  <!-- <img src="https:/ /upload.wikimedia.org/wikipedia/en/thumb/c/c8/Bluestar_%28bus_company%29_logo.svg/1280px-Bluestar_%28bus_company%29_logo.svg.png" alt="Company Logo"> -->
+		  <div class="menu-toggle" id="mobile-menu">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		  </div>
+		  </nav>
+	   </div>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>
+				<p id="instructions">Upload your image(s), select your language, and press "Run" to extract text. Copy the text from the box below or save the OCR results to a .txt file.</p>
+			</h2>
+			<h5>
+			<forms>
+					<input type="file" class = "file" id="fileElementId" name="files[]" size="20" multiple="multiple" accept="image/*" />
+			</h5>
+			</forms>
+			<h3>
+		<form method="post">
+			<label for="dropdown " class="droptext">Document Language:</label>
+			<select id="dropdown" name="dropdown" onchange="changeHiddenInput(this)">
+				<option value="eng">English</option>
+				<option value="rus">Russian</option>
+				<option value="ara">Arabic</option>
+				<option value="bul">Bulgarian</option>
+				<option value="ces">Czech</option>
+				<option value="chi_sim">Chinese - Simplified</option>
+				<option value="chi_tra">Chinese - Traditional</option>
+				<option value="fra">French</option>
+				<option value="deu">German</option>
+				<option value="heb">Hebrew</option>
+				<option value="ita">Italian</option>
+				<option value="jpn">Japanese</option>
+				<option value="lat">Latin</option>
+				<option value="pol">Polish</option>
+				<option value="por">Portuguese</option>
+				<option value="san">Sanskrit</option>
+				<option value="tam">Tamil</option>
+				<option value="ukr">Ukrainian</option>
+			</select>
+			<input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+		</form>
+			<br />
+		<input id="runOCR" type="button" class="btn" value="Run OCR!" />
+			<br />
+			<br />
+			<div id="result"></div>
+			<div id="ocr_results"><textarea id="TextArea"></textarea></div>
+			<div id="clear"></div>
+		</h3>
+		<h5>
+		<div id="ocr_status"> </div>
+		</h5>
+		<h3>
+		<div class="form-group">
+			<label for="input-fileName" class="filfield">Filename:</label>
+			<input type="text" class="form-control" id="input-fileName" value="my_OCR" placeholder="Enter filename">
+			<button id="btn-save" type="submit" class="btn">Save to file</button>
+		</div>
+		</h3>
+
+		</div>
+
+		<div class="col-md-6" id="img">
+			<img class="ocrpc" src="../images/ocrimage.jpg" width="90%" height="100%" />
+
+		</div>
+
+	</div>
+</body>
+<script src="https://cdn.rawgit.com/naptha/tesseract.js/0.2.0/dist/tesseract.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
+<script src="../js/ocr.js"></script>
+</html>
